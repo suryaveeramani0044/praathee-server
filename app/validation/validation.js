@@ -28,12 +28,19 @@ const address = body("address")
   .notEmpty()
   .withMessage("address field connot be empty");
 
+const salary = body("salary")
+  .notEmpty()
+  .withMessage("salary field connot be empty");
+const position = body("position")
+  .notEmpty()
+  .withMessage("position field connot be empty");
+
 exports.LoginValidation = () => {
   return [emailValidator, password];
 };
 
 exports.adduserValidation = () => {
-  return [firstName, emailValidator, password, address, lastName];
+  return [firstName, emailValidator, address, lastName, salary, position];
 };
 
 exports.Validator = (req, res, next) => {

@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 require("dotenv").config();
 const { dbConnection } = require("./app/db/db");
 const userRoutes = require("./app/route/userRoute");
+const empRoutes = require("./app/route/empRoute");
 
 const PORT = process.env.PORT || 8000;
 
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 dbConnection();
 //route
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/emp", empRoutes);
 
 app.use((error, req, res, next) => {
   res.status(400).json({
