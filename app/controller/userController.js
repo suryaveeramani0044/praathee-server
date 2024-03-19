@@ -71,7 +71,7 @@ exports.deleteUser = async (req, res, next) => {
       success: user.deletedCount === 1 ? true : false,
       message:
         user.deletedCount === 1 ? "user deleted succesfully" : "user not found",
-      data: user.deletedCount,
+      count: user.deletedCount,
     });
   } catch (e) {
     next(e);
